@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body style="background-color: yellow;" class="">
+      <h2 class="text-center">STOP WATCH</h2>
+      <div class=" text-white bg-danger mt-5 mx-auto w-50 pt-3 show-info d-flex justify-content-center position-relative border border-primary ">
+          <p id="second" class="mx-1">00</p>
+          <p id="sets" class="mx-1">00</p>
+      </div>
+      <div class=" mt-5 button-list  d-flex justify-content-center align-item-center ">
+          <button id="start-btn" class="btn btn-danger">Start</button>
+          <button id="stop-btn" class="btn btn-success mx-5">Stop</button>
+          <button id="reset-btn" class="btn btn-info">Reset</button>
+      </div>
+<!-- JS  -->
+      <script>
+      window.onload = function(){
+          var seconds = 00; 
+          var tens = 00; 
+          second1 = document.getElementById('second');
+          sets = document.getElementById('sets');
+          startBTN = document.getElementById('start-btn');
+          stopBTN = document.getElementById('stop-btn');
+          resetBTN =document.getElementById('reset-btn');
+          var Interval ;
+
+          resetBTN.onclick = function(){
+                clearInterval(Interval);
+                seconds = "00";
+                tens = "00";
+                sets.innerHTML = tens;
+                second1.innerHTML = seconds;
+          }        
+
+          startBTN.onclick = function(){
+            clearInterval(Interval);
+            Interval = setInterval(startTimer, 10);
+            }
+
+          stopBTN.onclick = function() {
+            clearInterval(Interval);
+          }
+          
+        var seconds = 0;
+        var tens = 0;
+        
+        function startTimer(){
+            tens++;
+            if (tens < 9){
+                sets.innerHTML= '0'+tens;
+            }
+             
+            if (tens > 9){
+                sets.innerHTML = tens;
+            
+            } 
+            if (tens > 99){
+
+                seconds ++;
+                second1.innerHTML ='0' +seconds;
+                tens = 0;
+                sets.innerHTML =tens;   
+            }
+            if (seconds > 9){
+                second1.innerHTML= seconds;
+            }
+            }
+            }
+
+      </script>
+      
+
+<!-- End JS -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
